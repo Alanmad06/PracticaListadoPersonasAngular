@@ -25,9 +25,12 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "C:/Users/alanm/OneDrive/Documentos/BootStrap/CSS/bootstrap.min.css"
             ],
-            "scripts": []
+            "scripts": [
+               "C:/Users/alanm/OneDrive/Documentos/BootStrap/JS/bootstrap.bundle.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -94,5 +97,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }
