@@ -1,5 +1,7 @@
-import { Component, ElementRef, EventEmitter, Output, ViewChild } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { Persona } from '../persona.model';
+import { loggingService } from '../loggingService.service';
+import { personasService } from '../personas.service';
 
 @Component({
   selector: 'app-form',
@@ -7,42 +9,29 @@ import { Persona } from '../persona.model';
   styleUrls: ['./form.component.css']
 })
 export class FormComponent {
-  //Output nos sirve para enviar informacion al componente padre en este caso se envia una persona creada a partir del formulario html
-  @Output() personaCreada = new EventEmitter<Persona>() // El evento se encarga de enviar el dato tipo persona "personaCreada"
-/*
-Con TwoWayBinding : 
-  nombreInput:string =""
-  apellidoInput:string =""
-  
-  
-  agregarPersonas(){
+ 
 
-    let persona1 = new Persona(this.nombreInput, this.apellidoInput)
-    //this.personas.push(persona1)
-    this.personaCreada.emit(persona1)
-  }*/
+  constructor(private personasService : personasService){
+    //Con este service nos podemos suscribir al saludo que envia el componente persona , el componente se suscribe al emitter y puede
+    // "escuchar lo que se manda del html persona"
+    this.personasService.saludar.subscribe(
+      (indice:number) => {alert("el indice es "+(indice+1))}
+    )
 
-  //Decorador ViewChild nos ayuda a sacar la info de los inputs mediante su nombre (#) 
-  // en el () se pone el nombre de los inputs a continuacion declaras la variable de tipo ElementRef
+  }
 
   @ViewChild("nombreInput") nombreInput: ElementRef
   @ViewChild("apellidoInput") apellidpInput: ElementRef
 
-  /*
-  Con Local Reference : 
-  agregarPersonas(nombreInput:HTMLInputElement,apellidoInput:HTMLInputElement){
+  
 
-    let persona1 = new Persona(nombreInput.value, apellidoInput.value)
-    //this.personas.push(persona1)
-    this.personaCreada.emit(persona1)
-  }*/
- 
-  // Con ViuwChild : 
+  
+  
   agregarPersonas(){
 
     let persona1 = new Persona(this.nombreInput.nativeElement.value,this.apellidpInput.nativeElement.value)
-    //this.personas.push(persona1)
-    this.personaCreada.emit(persona1)
+    this.personasService.agregarPersona(persona1)
+
   }
 
 }

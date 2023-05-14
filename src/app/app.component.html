@@ -4,9 +4,7 @@
   </div> <!-- mediante (personaCreada) el metodo que existe en form.component.ts se envia la info de ese componente 
   posteriormente se pasa a un metodo local de la misma clase app-component que tiene de paramentro $event
 para poder recibir lo que se mando -->
-  <app-form  
-  (personaCreada)="personaAgregada($event)" 
-  ></app-form><!-- Event Binding -->
+  <app-form></app-form><!-- Event Binding -->
   <hr>
 
    <!-- Se envia las variables persona e indice havia el componente persona app-persona
