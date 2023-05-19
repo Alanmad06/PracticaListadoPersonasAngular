@@ -1,20 +1,7 @@
-<div class="container my-4">
-  <div class="col">
+<div class="box" id="heading">
+  
     <h1>{{ titulo }}</h1>
-  </div> <!-- mediante (personaCreada) el metodo que existe en form.component.ts se envia la info de ese componente 
-  posteriormente se pasa a un metodo local de la misma clase app-component que tiene de paramentro $event
-para poder recibir lo que se mando -->
-  <app-form></app-form><!-- Event Binding -->
-  <hr>
+  </div>
 
-   <!-- Se envia las variables persona e indice havia el componente persona app-persona
-  se utiliza el ciclo *ngFor para iterar el array Personas , en este caso se pasa la variable persona que itera a personas y el iterador
-estas 2 no estan declaradas en el .ts solamente el array personas , las variables adentro de [] tienen que tener el mismo nombre
-que el componente que las va a recibir -->
-<app-persona
-*ngFor="let personaElemento of personas; let i = index"
-[persona] = "personaElemento"
-[indice]="i"
-></app-persona> <!-- Property Binding -->
-</div>
-
+<router-outlet></router-outlet> <!-- Se hace uso del Routing , esto nos permite navegar entre diferentes paginas 
+pero en realidad son componentes ya que angular todo se ejecuta en una misma pagina -->

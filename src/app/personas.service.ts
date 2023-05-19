@@ -24,5 +24,19 @@ export class personasService{
         this.loggingService.imprimirLog("Nombre :"+persona.nombre)
         this.personas.push(persona)
       }
+    encontrarPersona(index:number){
+      let persona: Persona = this.personas[index]
+      return persona
+    }
+    modificarPersona(index:number, persona:Persona){
+      let persona1: Persona = this.personas[index]
+       persona1.nombre=persona.nombre
+       persona1.apellido=persona.apellido
+       
+       //Con esto se cambia ya que se pasan valores por referencia no hace falta meterlo otra vez al arreglo this.personas[index]=persona1
+    }
+    eliminarPersona(index:number){
+      this.personas.splice(index,1)
+    }
 
 }

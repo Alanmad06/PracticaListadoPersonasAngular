@@ -1,0 +1,14 @@
+<div class="item">
+    <ul>
+        <li> <!-- con queryParams podemos enviar parametros por un link a otra pagina en este caso se manda modoEdicion:number=1 -->
+            <a [routerLink]="['/personas',indice]"
+            [queryParams]="{modoEdicion}"
+            >{{ persona.nombre }} {{ persona.apellido }}</a> <!-- Con esto podemos pasar un parametro especificando la ruta y 
+            el parametro a pasar en este caso el indice , esta ruta ya la definimos con el app-routing en routes como 
+        personas/:id -->
+        </li>
+    </ul>
+   
+   
+</div>
+  

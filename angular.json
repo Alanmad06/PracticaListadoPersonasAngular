@@ -25,11 +25,11 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css",
-              "C:/Users/alanm/OneDrive/Documentos/BootStrap/CSS/bootstrap.min.css"
+              "src/styles.css"
+       
             ],
             "scripts": [
-               "C:/Users/alanm/OneDrive/Documentos/BootStrap/JS/bootstrap.bundle.min.js"
+              
             ]
           },
           "configurations": {
