@@ -16,7 +16,19 @@ export class PersonasComponent {
 
   }
   ngOnInit(): void {
-      this.personas=this.personasService.personas
+    //this.personas=this.personasService.personas
+      this.personasService.cargarPersonas()
+      .subscribe(
+        (personas:Persona[]) =>{
+           this.personas=personas
+          this.personasService.setPersonas(this.personas)
+        }
+
+        // Con esto nos suscribirmos al metodo cargar personas pq nos da un observable , y con .suscribe obtenemos ya la info
+        // que tiene el get de la bd , lo asignamos a el arreglo personas y despues seteamos el arreglo del servicio personas con
+        // este arreglo que ya tiene info 
+        
+  );
   }
 
   personaAgregada(persona:Persona){

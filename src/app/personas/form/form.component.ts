@@ -53,6 +53,7 @@ this.modoEdicion= +this.route.snapshot.queryParams['modoEdicion'] //Con el mas s
     
     this.router.navigate(['personas']);
   }
+  
   eliminarPersona(){
     if(this.index){
       this.personasService.eliminarPersona(this.index)

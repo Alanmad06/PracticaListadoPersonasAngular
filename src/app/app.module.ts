@@ -10,6 +10,21 @@ import { personasService } from './personas.service';
 import { AppRoutingModule } from './app-routing.module';
 import { PersonasComponent } from './personas/personas.component';
 import { ErrorComponent } from './error/error.component';
+import { dataServices } from './data.services';
+import { HttpClientModule } from '@angular/common/http';
+import { LoginComponent } from './login/login.component';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
+import { environment } from '../environments/environment';
+import { loginService } from './login/login.service';
+import { loginGuardian } from './login/loginguardian.service';
+import { RegistroComponent } from './registro/registro.component';
+
+
+
 
 @NgModule({
   declarations: [
@@ -17,13 +32,20 @@ import { ErrorComponent } from './error/error.component';
     PersonaComponent,
     FormComponent,
     PersonasComponent,
-    ErrorComponent
+    ErrorComponent,
+    LoginComponent,
+    RegistroComponent
+    
+    
   ],
   imports: [
-    BrowserModule, FormsModule , AppRoutingModule
+    BrowserModule, FormsModule , AppRoutingModule , HttpClientModule, AngularFireModule.initializeApp(environment.firebase),
+     AngularFireAuthModule,AngularFirestoreModule,
+     AngularFireStorageModule,
+     AngularFireDatabaseModule,
   ],
   providers: [
-    loggingService , personasService
+    loggingService , personasService , dataServices ,loginService , loginGuardian
   ],
   bootstrap: [AppComponent]
 })

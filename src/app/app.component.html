@@ -1,7 +1,16 @@
+<div *ngIf="!isAutenticado()" class="box centrado">
+<a routerLink="/login">Login</a>
+</div>
+<div *ngIf="isAutenticado()" class="box centrado">
+<a (click)="logout()" style="cursor: pointer;">Logout</a>
+</div>
+<div  class="box centrado">
+  <a routerLink="/registro">Registro</a>
+  </div>
+  
 <div class="box" id="heading">
   
     <h1>{{ titulo }}</h1>
   </div>
 
-<router-outlet></router-outlet> <!-- Se hace uso del Routing , esto nos permite navegar entre diferentes paginas 
-pero en realidad son componentes ya que angular todo se ejecuta en una misma pagina -->
+<router-outlet></router-outlet> 
