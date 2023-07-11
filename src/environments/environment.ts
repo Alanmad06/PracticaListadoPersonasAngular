@@ -1,7 +1,7 @@
 export const environment ={
 
  production : false,
- firebase : {
+ firestore : {
   apiKey: "AIzaSyBdwzi0x1nAFcAWBnUaraTH0jzTq5S61xg",
   authDomain: "listado-personas-673cf.firebaseapp.com",
   databaseURL: "https://listado-personas-673cf-default-rtdb.firebaseio.com",

@@ -14,14 +14,18 @@ import { dataServices } from './data.services';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { AngularFireModule } from '@angular/fire/compat';
-import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { AngularFireAuth, AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
+
 import { environment } from '../environments/environment';
 import { loginService } from './login/login.service';
 import { loginGuardian } from './login/loginguardian.service';
 import { RegistroComponent } from './registro/registro.component';
+import { AmigosComponent } from './personas/persona/amigos/amigos.component';
+import { FormAmigosComponent } from './personas/form/form-amigos/form-amigos.component';
+
 
 
 
@@ -34,12 +38,15 @@ import { RegistroComponent } from './registro/registro.component';
     PersonasComponent,
     ErrorComponent,
     LoginComponent,
-    RegistroComponent
+    RegistroComponent,
+    AmigosComponent,
+    FormAmigosComponent
+   
     
     
   ],
   imports: [
-    BrowserModule, FormsModule , AppRoutingModule , HttpClientModule, AngularFireModule.initializeApp(environment.firebase),
+    BrowserModule, FormsModule , AppRoutingModule , HttpClientModule, AngularFireModule.initializeApp(environment.firestore),
      AngularFireAuthModule,AngularFirestoreModule,
      AngularFireStorageModule,
      AngularFireDatabaseModule,

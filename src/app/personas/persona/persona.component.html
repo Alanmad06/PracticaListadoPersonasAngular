@@ -1,14 +1,29 @@
-<div class="item">
-    <ul>
-        <li> <!-- con queryParams podemos enviar parametros por un link a otra pagina en este caso se manda modoEdicion:number=1 -->
-            <a [routerLink]="['/personas',indice]"
-            [queryParams]="{modoEdicion}"
-            >{{ persona.nombre }} {{ persona.apellido }}</a> <!-- Con esto podemos pasar un parametro especificando la ruta y 
+<div class="item centro">
+  <ul>
+    <li>
+      <!-- con queryParams podemos enviar parametros por un link a otra pagina en este caso se manda modoEdicion:number=1 -->
+      <a [routerLink]="['/personas', indice]" [queryParams]="{modoEdicion}"
+        >{{ persona.nombre }} {{ persona.apellido }}
+      </a>
+      <!-- Con esto podemos pasar un parametro especificando la ruta y 
             el parametro a pasar en este caso el indice , esta ruta ya la definimos con el app-routing en routes como 
         personas/:id -->
-        </li>
-    </ul>
-   
-   
+        <div class="">
+      <button class="info " (click)="activarAmigos()">Amigos</button>
+      <button (click)="desactivarAmigos()">-</button>
+      <div  *ngIf="amigo===1" >
+        <h3>Amigos</h3>
+        <app-amigos [amigos]="persona.amigos" [indice]="indice" ></app-amigos>
+        <button [routerLink]="['/personas',indice] " [queryParams]="{amigo}">+</button>
+      </div>
+      <button class="info " (click)="activarFamiliares()">Familiares</button>
+      <button (click)="desactivarFamiliares()">-</button>
+      <div  *ngIf="familia===1" >
+        <h3>Familiares</h3>
+        <app-amigos [familiares]="persona.familiares" [indice]="indice" ></app-amigos>
+        <button [routerLink]="['/personas',indice] " [queryParams]="{familia}">+</button>
+      </div>
+      </div>
+    </li>
+  </ul>
 </div>
-  

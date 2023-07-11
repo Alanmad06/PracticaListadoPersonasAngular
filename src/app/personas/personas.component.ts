@@ -22,6 +22,7 @@ export class PersonasComponent {
         (personas:Persona[]) =>{
            this.personas=personas
           this.personasService.setPersonas(this.personas)
+          
         }
 
         // Con esto nos suscribirmos al metodo cargar personas pq nos da un observable , y con .suscribe obtenemos ya la info

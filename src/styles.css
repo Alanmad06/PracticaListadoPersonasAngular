@@ -14,7 +14,7 @@ html {
   }
   
   .box { /* . -> clases */
-    max-width: 500px;
+    max-width: 600px;
     margin: 50px auto;
     background: white;
     border-radius: 10px;
@@ -29,6 +29,15 @@ html {
     display: grid;
     align-items: center;
     clear: both;
+  }
+  ul{
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  ul li{
+    margin-left: .75em;
+    margin-right: .75em;
   }
 
   #heading { /* # -> Id */
@@ -75,6 +84,17 @@ html {
     font-size: 30px;
     padding-bottom: 6px;
     border-width: 0;
+  }
+  .info{
+   
+ 
+    width: 70px;
+    height: 50px;
+    border-radius: 20%;
+    margin-left: 10px;
+    font-size: medium;
+
+    
   }
   .buttonRed {
     min-height: 50px;

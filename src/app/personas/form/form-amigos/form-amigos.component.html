@@ -1,0 +1,65 @@
+<div class="box">
+    <form class="item" #f="ngForm" (ngSubmit)="f.form.valid && guardarAmigo()">
+      <div *ngIf="modoEdicionAmigos==1">
+        <input
+        type="text"
+        name="nombre"
+        id="name"
+        class="form-control my-2"
+        placeholder="Nombre"
+        [(ngModel)]="amigo.nombre"
+        required
+        />
+        <input
+        type="text"
+        name="apellido"
+        id="apellido"
+        class="form-control my-2"
+        placeholder="Apellido"
+        [(ngModel)]="amigo.apellido"
+        required
+        />
+      </div>
+      <div *ngIf="modoEdicionFamiliar==1">
+        <input
+        type="text"
+        name="nombre"
+        id="name"
+        class="form-control my-2"
+        placeholder="Nombre"
+        [(ngModel)]="familiar.nombre"
+        required
+        />
+        <input
+        type="text"
+        name="apellido"
+        id="apellido"
+        class="form-control my-2"
+        placeholder="Apellido"
+        [(ngModel)]="familiar.apellido"
+        required
+        />
+        <input
+        type="text"
+        name="pariente"
+        id="pariente"
+        class="form-control my-2"
+        placeholder="Parentesco"
+        [(ngModel)]="familiar.pariente"
+        required
+        />
+        
+      </div>
+
+<button type="submit" style="cursor: pointer">+</button>
+<button
+  *ngIf="indice != null"
+  class="buttonRed"
+  type="submit"
+  (click)="eliminarAmigo()"
+  style="cursor: pointer"
+>
+  -
+</button>
+</form>
+</div>

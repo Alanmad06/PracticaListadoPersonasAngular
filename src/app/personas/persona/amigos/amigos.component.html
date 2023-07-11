@@ -1,0 +1,21 @@
+<div class="item">
+    <ul *ngIf="amigos">
+        <li *ngFor="let amigo of amigos"> <!-- con queryParams podemos enviar parametros por un link a otra pagina en este caso se manda modoEdicion:number=1 -->
+            <a [routerLink]="['/personas',indice]" [queryParams]="{modoEdicionAmigos}"
+            
+            >{{ amigo.nombre }} {{ amigo.apellido }} </a>
+            
+        </li>
+    </ul>
+    <ul *ngIf="familiares">
+        <li *ngFor="let familia of familiares"> 
+            <a [routerLink]="['/personas',indice]" [queryParams]="{modoEdicionFamilia}"
+            
+            >{{ familia.nombre }} {{ familia.apellido }} Parentesco :{{familia.pariente}} </a>
+            
+        </li>
+    </ul>
+  
+   
+</div>
+  

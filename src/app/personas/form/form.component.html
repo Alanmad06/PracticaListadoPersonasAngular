@@ -1,31 +1,62 @@
-
 <div class="box">
-<form class="item" #f="ngForm" (ngSubmit)="f.form.valid && guardarPersona()">
-  <input
-    type="text"
-    name="nombre"
-    id="name"
-    class="form-control my-2"
-    placeholder="Nombre"
-    [(ngModel)]="nombreInput"
-    required
-  />
+  <form class="item" #f="ngForm" (ngSubmit)="f.form.valid && guardarPersona()">
+    <div *ngIf="modoEdicionAmigos===1">
+      <app-form-amigos *ngFor="let amigo of amigos; let indexA = index"
+      [amigo]="amigo"
+      [indice]="index"
+      [modoEdicionAmigos]="modoEdicionAmigos"
+      [indiceAmigos]="indexA"></app-form-amigos>
+    </div>
+    <div *ngIf="modoEdicionFamilia===1">
+      <app-form-amigos *ngFor="let familiar of familiares; let indexF = index"
+      [familiar]="familiar"
+      [indice]="index"
+      [modoEdicionFamiliar]="modoEdicionFamilia"
+      [indiceFamilia]="indexF"></app-form-amigos>
+    </div>
 
-  <input
-    type="text"
-    name="apellido"
-    id="apellido"
-    class="form-control my-2"
-    placeholder="Apellido"
-    [(ngModel)]="apellidoInput"
-    required
-  />
+    <div *ngIf="modoEdicionAmigos!==1 && modoEdicionFamilia!==1">
+      <input
+        type="text"
+        name="nombre"
+        id="name"
+        class="form-control my-2"
+        placeholder="Nombre"
+        [(ngModel)]="nombreInput"
+        required
+      />
 
-  <button type="submit" style="cursor: pointer;" >
-    +
-  </button>
-   <button *ngIf="index != null" class="buttonRed" type="submit" (click)="eliminarPersona()" style="cursor: pointer;">
-    -
-  </button>
-</form>
+      <input
+        type="text"
+        name="apellido"
+        id="apellido"
+        class="form-control my-2"
+        placeholder="Apellido"
+        [(ngModel)]="apellidoInput"
+        required
+      />
+      <input *ngIf="familia==1"
+      type="text"
+      name="pariente"
+      id="pariente"
+      class="form-control my-2"
+      placeholder="Parentesco"
+      [(ngModel)]="parienteInput"
+      required
+    />
+      <button type="submit" style="cursor: pointer">+</button>
+      <button
+        *ngIf="index != null"
+        class="buttonRed"
+        type="submit"
+        (click)="eliminarPersona()"
+        style="cursor: pointer"
+      >
+        -
+      </button>
+    </div>
+    
+
+   
+  </form>
 </div>

@@ -7,11 +7,13 @@ import { ErrorComponent } from './error/error.component';
 import { LoginComponent } from './login/login.component';
 import { loginGuardian } from './login/loginguardian.service';
 import { RegistroComponent } from './registro/registro.component';
+import { AmigosComponent } from './personas/persona/amigos/amigos.component';
 
 const routes: Routes =[{path: '',component : PersonasComponent, canActivate :[loginGuardian]},{
   path: 'personas', component: PersonasComponent,canActivate :[loginGuardian],  children: [
     {path:'agregar', component: FormComponent},
-    {path:':id', component:FormComponent}
+    {path:':id', component:FormComponent},
+   // {path: ':amigos', component:FormComponent}
   ]},{
     path:'registro', component: RegistroComponent
   },{path:'login', component : LoginComponent },{path: '**',component : ErrorComponent}
